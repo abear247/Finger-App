@@ -6,8 +6,13 @@
 //  Copyright © 2017 Alex Bearinger. All rights reserved.
 //
 
-@class UIKit;
+@import UIKit;
+#import "LineSegment.h"
+#import "LineSegment.h"
+
 
 @interface Line : NSObject
-
+@property NSMutableArray *lineSegments;
+@property UIColor *colour;
+-(instancetype)initWithColour:(UIColor *)colour;
 @end

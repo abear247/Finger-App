@@ -16,6 +16,7 @@
 		C8EB2DD81E32965D00D9AC6B /* Finger_AppUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB2DD71E32965D00D9AC6B /* Finger_AppUITests.m */; };
 		C8EB2DE71E329BDF00D9AC6B /* Line.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB2DE61E329BDF00D9AC6B /* Line.m */; };
 		C8EB2DEA1E329D3400D9AC6B /* LineSegment.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB2DE91E329D3400D9AC6B /* LineSegment.m */; };
+		C8EB2DED1E32A16100D9AC6B /* View.m in Sources */ = {isa = PBXBuildFile; fileRef = C8EB2DEC1E32A16100D9AC6B /* View.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -55,6 +56,8 @@
 		C8EB2DE61E329BDF00D9AC6B /* Line.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Line.m; sourceTree = "<group>"; };
 		C8EB2DE81E329D3400D9AC6B /* LineSegment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LineSegment.h; sourceTree = "<group>"; };
 		C8EB2DE91E329D3400D9AC6B /* LineSegment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LineSegment.m; sourceTree = "<group>"; };
+		C8EB2DEB1E32A16100D9AC6B /* View.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = View.h; sourceTree = "<group>"; };
+		C8EB2DEC1E32A16100D9AC6B /* View.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = View.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -113,6 +116,8 @@
 				C8EB2DE91E329D3400D9AC6B /* LineSegment.m */,
 				C8EB2DE51E329BDF00D9AC6B /* Line.h */,
 				C8EB2DE61E329BDF00D9AC6B /* Line.m */,
+				C8EB2DEB1E32A16100D9AC6B /* View.h */,
+				C8EB2DEC1E32A16100D9AC6B /* View.m */,
 				C8EB2DBB1E32965D00D9AC6B /* Main.storyboard */,
 				C8EB2DBE1E32965D00D9AC6B /* Assets.xcassets */,
 				C8EB2DC31E32965D00D9AC6B /* Info.plist */,
@@ -281,6 +286,7 @@
 			files = (
 				C8EB2DBA1E32965D00D9AC6B /* ViewController.m in Sources */,
 				C8EB2DE71E329BDF00D9AC6B /* Line.m in Sources */,
+				C8EB2DED1E32A16100D9AC6B /* View.m in Sources */,
 				C8EB2DEA1E329D3400D9AC6B /* LineSegment.m in Sources */,
 				C8EB2DB71E32965D00D9AC6B /* AppDelegate.m in Sources */,
 				C8EB2DB41E32965D00D9AC6B /* main.m in Sources */,

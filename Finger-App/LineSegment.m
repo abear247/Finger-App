@@ -10,4 +10,13 @@
 
 @implementation LineSegment
 
+-(instancetype)initWithFirstPoint:(CGPoint)firstpoint secondPoint:(CGPoint)secondPoint{
+    self = [super init];
+    if(self){
+        _firstPoint = firstpoint;
+        _secondPoint = secondPoint;
+    }
+    return self;
+}
+
 @end

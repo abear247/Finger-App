@@ -10,4 +10,15 @@
 
 @implementation Line
 
+-(instancetype)initWithColour:(UIColor *)colour{
+    self = [super init];
+    if (self){
+        _lineSegments = [NSMutableArray new];
+        _colour = colour;
+    }
+    return self;
+}
+
+
+
 @end

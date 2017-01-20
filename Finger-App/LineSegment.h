@@ -6,8 +6,11 @@
 //  Copyright © 2017 Alex Bearinger. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
+@import UIKit;
+
 
 @interface LineSegment : NSObject
-
+@property CGPoint firstPoint;
+@property CGPoint secondPoint;
+-(instancetype)initWithFirstPoint:(CGPoint)firstpoint secondPoint:(CGPoint)secondPoint;
 @end
