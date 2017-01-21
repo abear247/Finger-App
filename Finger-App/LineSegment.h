@@ -12,5 +12,6 @@
 @interface LineSegment : NSObject
 @property CGPoint firstPoint;
 @property CGPoint secondPoint;
+@property CGFloat width;
 -(instancetype)initWithFirstPoint:(CGPoint)firstpoint secondPoint:(CGPoint)secondPoint;
 @end

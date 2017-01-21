@@ -42,7 +42,7 @@
     CGFloat distance = sqrt((distancex*distancex)+(distancey*distancey));
     NSTimeInterval time = event.timestamp - self.previousTimeStamp;
     CGFloat speed = distance/time;
-    self.drawSpeed = speed/100;
+    self.drawSpeed = speed/10;
     LineSegment *lineSegment = [[LineSegment alloc] initWithFirstPoint:first secondPoint:second];
     Line *line = self.lines.lastObject;
     [line.lineSegments addObject:lineSegment];
@@ -63,7 +63,8 @@
     for (Line *line in self.lines){
           [line.colour setStroke];
         UIBezierPath *path = [UIBezierPath new];
-        path.lineWidth = self.drawSpeed;
+        [path setLineJoinStyle:kCGLineJoinRound];
+        path.lineWidth = 8;
         path.lineCapStyle = kCGLineCapRound;
         for (LineSegment *lineSegment in line.lineSegments){
           
@@ -71,15 +72,21 @@
                 [path moveToPoint:lineSegment.firstPoint];
                 continue;
             }
+          //  lineSegment.width;
             [path addLineToPoint:lineSegment.firstPoint];
             [path addLineToPoint:lineSegment.secondPoint];
+           
+            
+         
             
         }
+        
         [path stroke];
-        [self setNeedsDisplay];
+        
+        
     }
     
-    
+    [self setNeedsDisplay];
 }
 
 -(void)clear{

@@ -32,12 +32,21 @@
 }
 - (IBAction)redChange:(id)sender {
     self.redAmount = self.red.value/255;
+    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
+    self.colourShower.backgroundColor = colour;
+    [self.drawView createLine:colour];
 }
 - (IBAction)greenChange:(id)sender {
     self.greenAmount = self.green.value/255;
+    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
+    self.colourShower.backgroundColor = colour;
+    [self.drawView createLine:colour];
 }
 - (IBAction)blueChange:(id)sender {
     self.blueAmount = self.blue.value/255;
+    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
+    self.colourShower.backgroundColor = colour;
+    [self.drawView createLine:colour];
 }
 - (IBAction)eraser:(id)sender {
     [self.drawView createLine:[UIColor whiteColor]];
