@@ -10,7 +10,7 @@
 
 
 @interface ViewController ()
-@property (weak, nonatomic) IBOutlet View *drawView;
+@property (weak, nonatomic) IBOutlet drawView *drawView;
 @property float redAmount;
 @property float greenAmount;
 @property float blueAmount;
@@ -27,18 +27,18 @@
     [self.drawView clear];
 }
 - (IBAction)redChange:(id)sender {
-    self.redAmount = self.red.value;
-    [self.drawView createLine:[UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1]];
+    self.redAmount = self.red.value/255;
 }
 - (IBAction)greenChange:(id)sender {
-    self.greenAmount = self.green.value;
-    [self.drawView createLine:[UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1]];
+    self.greenAmount = self.green.value/255;
 }
 - (IBAction)blueChange:(id)sender {
-    self.blueAmount = self.blue.value;
-    [self.drawView createLine:[UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1]];
+    self.blueAmount = self.blue.value/255;
 }
 
+- (IBAction)saveColour:(id)sender {
+    [self.drawView createLine:[UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1]];
+}
 
 
 

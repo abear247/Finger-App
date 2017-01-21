@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "View.h"
+#import "drawView.h"
 
 @interface ViewController : UIViewController
 @property (weak, nonatomic) IBOutlet UISlider *red;

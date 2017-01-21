@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "Line.h"
+#import "LineSegment.h"
 
-@interface View : UIView
+@interface drawView : UIView
 @property NSMutableArray *lines;
 -(void)createLine:(UIColor*)colour;
 -(void)clear;
