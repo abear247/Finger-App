@@ -50,6 +50,32 @@
                                             <action selector="blueChange:" destination="BYZ-38-t0r" eventType="valueChanged" id="YWm-uq-Eun"/>
                                         </connections>
                                     </slider>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2R0-jR-ZkI">
+                                        <rect key="frame" x="130" y="44" width="114" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                        </userDefinedRuntimeAttributes>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xnC-Ck-qmc">
+                                        <rect key="frame" x="8" y="44" width="114" height="30"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <color key="backgroundColor" white="0.65859374999999998" alpha="1" colorSpace="calibratedWhite"/>
+                                        <size key="titleShadowOffset" width="1" height="1"/>
+                                        <state key="normal" title="Erase">
+                                            <color key="titleShadowColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="eraser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="Fme-UO-upW"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -94,7 +120,7 @@
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LVG-7r-bKX">
-                        <barButtonItem key="leftBarButtonItem" title="Save Colour" id="ISn-QX-8qL">
+                        <barButtonItem key="leftBarButtonItem" title="Set Colour" id="ISn-QX-8qL">
                             <connections>
                                 <action selector="saveColour:" destination="BYZ-38-t0r" id="zW8-CV-GoZ"/>
                             </connections>
@@ -107,6 +133,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="blue" destination="CV4-03-pym" id="Hsq-Rc-vgX"/>
+                        <outlet property="colourShower" destination="2R0-jR-ZkI" id="gMl-JD-oaI"/>
                         <outlet property="drawView" destination="RLf-CI-eD6" id="79M-eT-Pvj"/>
                         <outlet property="green" destination="9zT-Zr-23p" id="1ar-cl-M6s"/>
                         <outlet property="red" destination="uC7-VX-FMi" id="IJs-pv-kzy"/>

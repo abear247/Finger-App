@@ -14,6 +14,8 @@
 @property float redAmount;
 @property float greenAmount;
 @property float blueAmount;
+@property (weak, nonatomic) IBOutlet UILabel *colourShower;
+
 
 @end
 
@@ -21,6 +23,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.colourShower.layer.masksToBounds = YES;
+    self.colourShower.layer.cornerRadius = 10;
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)clear:(id)sender {
@@ -35,9 +39,14 @@
 - (IBAction)blueChange:(id)sender {
     self.blueAmount = self.blue.value/255;
 }
+- (IBAction)eraser:(id)sender {
+    [self.drawView createLine:[UIColor whiteColor]];
+}
 
 - (IBAction)saveColour:(id)sender {
-    [self.drawView createLine:[UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1]];
+    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
+    [self.drawView createLine:colour];
+    self.colourShower.backgroundColor = colour;
 }
 
 

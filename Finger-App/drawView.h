@@ -12,6 +12,9 @@
 
 @interface drawView : UIView
 @property NSMutableArray *lines;
+@property NSTimeInterval previousTimeStamp;
+@property NSTimeInterval timeStamp;
+@property CGFloat drawSpeed;
 -(void)createLine:(UIColor*)colour;
 -(void)clear;
 @end

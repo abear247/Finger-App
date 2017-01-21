@@ -22,6 +22,7 @@
 
 
 -(void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    self.previousTimeStamp = event.timestamp;
     UITouch *touch = [touches anyObject];
     CGPoint first = [touch previousLocationInView:self];
     CGPoint second = [touch locationInView:self];
@@ -32,9 +33,16 @@
 }
 
 -(void)touchesMoved:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+    
     UITouch *touch = [touches anyObject];
     CGPoint first = [touch previousLocationInView:self];
     CGPoint second = [touch locationInView:self];
+    CGFloat distancex = second.x - first.x;
+    CGFloat distancey = second.y - first.y;
+    CGFloat distance = sqrt((distancex*distancex)+(distancey*distancey));
+    NSTimeInterval time = event.timestamp - self.previousTimeStamp;
+    CGFloat speed = distance/time;
+    self.drawSpeed = speed/100;
     LineSegment *lineSegment = [[LineSegment alloc] initWithFirstPoint:first secondPoint:second];
     Line *line = self.lines.lastObject;
     [line.lineSegments addObject:lineSegment];
@@ -55,7 +63,7 @@
     for (Line *line in self.lines){
           [line.colour setStroke];
         UIBezierPath *path = [UIBezierPath new];
-        path.lineWidth = 10;
+        path.lineWidth = self.drawSpeed;
         path.lineCapStyle = kCGLineCapRound;
         for (LineSegment *lineSegment in line.lineSegments){
           
@@ -68,7 +76,7 @@
             
         }
         [path stroke];
-        
+        [self setNeedsDisplay];
     }
     
     
