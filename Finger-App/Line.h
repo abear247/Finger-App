@@ -14,5 +14,6 @@
 @interface Line : NSObject
 @property NSMutableArray *lineSegments;
 @property UIColor *colour;
--(instancetype)initWithColour:(UIColor *)colour;
+@property float alpha;
+-(instancetype)initWithColour:(UIColor *)colour alpha:(float)alpha;
 @end

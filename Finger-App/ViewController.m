@@ -14,8 +14,6 @@
 @property float redAmount;
 @property float greenAmount;
 @property float blueAmount;
-@property (weak, nonatomic) IBOutlet UILabel *colourShower;
-
 
 @end
 
@@ -23,8 +21,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.colourShower.layer.masksToBounds = YES;
-    self.colourShower.layer.cornerRadius = 10;
+    self.opacitySlider.layer.masksToBounds = YES;
+    self.opacitySlider.layer.cornerRadius = 10;
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)clear:(id)sender {
@@ -32,30 +30,33 @@
 }
 - (IBAction)redChange:(id)sender {
     self.redAmount = self.red.value/255;
-    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
-    self.colourShower.backgroundColor = colour;
-    [self.drawView createLine:colour];
+    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:self.opacity];
+       self.opacitySlider.backgroundColor = colour;
+   [self.drawView createLine:colour alpha:self.opacity];
 }
 - (IBAction)greenChange:(id)sender {
     self.greenAmount = self.green.value/255;
-    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
-    self.colourShower.backgroundColor = colour;
-    [self.drawView createLine:colour];
+    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:self.opacity];
+       self.opacitySlider.backgroundColor = colour;
+   [self.drawView createLine:colour alpha:self.opacity];
 }
 - (IBAction)blueChange:(id)sender {
     self.blueAmount = self.blue.value/255;
-    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
-    self.colourShower.backgroundColor = colour;
-    [self.drawView createLine:colour];
+    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:self.opacity];
+    self.opacitySlider.backgroundColor = colour;
+    [self.drawView createLine:colour alpha:self.opacity];
 }
-- (IBAction)eraser:(id)sender {
-    [self.drawView createLine:[UIColor whiteColor]];
+
+- (IBAction)alphaSlider:(id)sender {
+    self.opacity = self.opacitySlider.value;
+    self.opacitySlider.alpha = self.opacitySlider.value;
+    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
+    [self.drawView createLine:colour alpha:self.opacity];
+
 }
 
 - (IBAction)saveColour:(id)sender {
-    UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
-    [self.drawView createLine:colour];
-    self.colourShower.backgroundColor = colour;
+    [self.drawView createLine:[UIColor whiteColor] alpha:1];;
 }
 
 

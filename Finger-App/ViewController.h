@@ -13,6 +13,8 @@
 @property (weak, nonatomic) IBOutlet UISlider *red;
 @property (weak, nonatomic) IBOutlet UISlider *green;
 @property (weak, nonatomic) IBOutlet UISlider *blue;
+@property float opacity;
+@property (weak, nonatomic) IBOutlet UISlider *opacitySlider;
 
 
 @end

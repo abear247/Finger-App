@@ -13,7 +13,7 @@
 -(instancetype)initWithCoder:(NSCoder *)aDecoder{
     self = [super initWithCoder:aDecoder];
     if (self){
-        Line *line = [[Line alloc] initWithColour:[UIColor blackColor]];
+        Line *line = [[Line alloc] initWithColour:[UIColor blackColor] alpha:1];
         _lines = [NSMutableArray new];
         [self.lines addObject:line];
     }
@@ -37,20 +37,20 @@
     UITouch *touch = [touches anyObject];
     CGPoint first = [touch previousLocationInView:self];
     CGPoint second = [touch locationInView:self];
-    CGFloat distancex = second.x - first.x;
-    CGFloat distancey = second.y - first.y;
-    CGFloat distance = sqrt((distancex*distancex)+(distancey*distancey));
-    NSTimeInterval time = event.timestamp - self.previousTimeStamp;
-    CGFloat speed = distance/time;
-    self.drawSpeed = speed/10;
+//    CGFloat distancex = second.x - first.x;
+//    CGFloat distancey = second.y - first.y;
+//    CGFloat distance = sqrt((distancex*distancex)+(distancey*distancey));
+//    NSTimeInterval time = event.timestamp - self.previousTimeStamp;
+//    CGFloat speed = distance/time;
+//    self.drawSpeed = speed/10;
     LineSegment *lineSegment = [[LineSegment alloc] initWithFirstPoint:first secondPoint:second];
     Line *line = self.lines.lastObject;
     [line.lineSegments addObject:lineSegment];
     [self setNeedsDisplay];
 }
 
--(void)createLine:(UIColor *)colour{
-    Line *line = [[Line alloc] initWithColour:colour];
+-(void)createLine:(UIColor *)colour alpha:(float)alpha{
+    Line *line = [[Line alloc] initWithColour:colour alpha:alpha];
     [self.lines addObject:line];
 }
 // Only override drawRect: if you perform custom drawing.
@@ -61,18 +61,19 @@
   //  Line *line = self.lines.lastObject;
   
     for (Line *line in self.lines){
-          [line.colour setStroke];
+        [line.colour setStroke];
         UIBezierPath *path = [UIBezierPath new];
         [path setLineJoinStyle:kCGLineJoinRound];
         path.lineWidth = 8;
         path.lineCapStyle = kCGLineCapRound;
+        path.miterLimit = 5;
+        
         for (LineSegment *lineSegment in line.lineSegments){
           
             if (CGPointEqualToPoint(lineSegment.firstPoint, lineSegment.secondPoint)){
                 [path moveToPoint:lineSegment.firstPoint];
                 continue;
             }
-          //  lineSegment.width;
             [path addLineToPoint:lineSegment.firstPoint];
             [path addLineToPoint:lineSegment.secondPoint];
            
@@ -80,8 +81,7 @@
          
             
         }
-        
-        [path stroke];
+        [path strokeWithBlendMode:kCGBlendModeNormal alpha:line.alpha];
         
         
     }

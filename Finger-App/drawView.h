@@ -15,6 +15,6 @@
 @property NSTimeInterval previousTimeStamp;
 @property NSTimeInterval timeStamp;
 @property CGFloat drawSpeed;
--(void)createLine:(UIColor*)colour;
+-(void)createLine:(UIColor*)colour alpha:(float)alpha;
 -(void)clear;
 @end
