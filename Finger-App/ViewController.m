@@ -23,6 +23,7 @@
     [super viewDidLoad];
     self.opacitySlider.layer.masksToBounds = YES;
     self.opacitySlider.layer.cornerRadius = 10;
+    
     // Do any additional setup after loading the view, typically from a nib.
 }
 - (IBAction)clear:(id)sender {
@@ -49,7 +50,7 @@
 
 - (IBAction)alphaSlider:(id)sender {
     self.opacity = self.opacitySlider.value;
-    self.opacitySlider.alpha = self.opacitySlider.value;
+    self.opacitySlider.alpha = self.opacity;
     UIColor *colour = [UIColor colorWithRed:self.redAmount green:self.greenAmount blue:self.blueAmount alpha:1];
     [self.drawView createLine:colour alpha:self.opacity];
 

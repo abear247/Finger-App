@@ -37,12 +37,6 @@
     UITouch *touch = [touches anyObject];
     CGPoint first = [touch previousLocationInView:self];
     CGPoint second = [touch locationInView:self];
-//    CGFloat distancex = second.x - first.x;
-//    CGFloat distancey = second.y - first.y;
-//    CGFloat distance = sqrt((distancex*distancex)+(distancey*distancey));
-//    NSTimeInterval time = event.timestamp - self.previousTimeStamp;
-//    CGFloat speed = distance/time;
-//    self.drawSpeed = speed/10;
     LineSegment *lineSegment = [[LineSegment alloc] initWithFirstPoint:first secondPoint:second];
     Line *line = self.lines.lastObject;
     [line.lineSegments addObject:lineSegment];
@@ -58,7 +52,6 @@
 - (void)drawRect:(CGRect)rect {
     // Drawing code
  
-  //  Line *line = self.lines.lastObject;
   
     for (Line *line in self.lines){
         [line.colour setStroke];
